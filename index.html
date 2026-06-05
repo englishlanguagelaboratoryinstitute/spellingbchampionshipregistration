@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss ELL — Official Registration</title>
+    <meta name="description" content="Register now for Miss ELL 2026. Submit your official contestant application.">
+
+    <!-- Google Fonts: Playfair Display + DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    /* ══════════════════════════════════════════════════
+       ✦  CUSTOMIZATION ZONE  ✦
+       Edit only this section to brand the page.
+    ══════════════════════════════════════════════════ */
+    :root {
+        /* 1. LOGO — paste your image URL between the quotes */
+        --logo-url: "logo.png";
+
+        /* 2. HERO PHOTO — paste your hero image URL between the quotes */
+        --hero-url: "hero.webp";
+
+        /* 3. EVENT NAME shown in header and titles */
+        --event-name: "Miss ELL";
+
+        /* 4. BRAND COLORS — change hex values if needed */
+        --primary:       #036c3a;
+        --primary-mid:   #A01353;
+        --primary-light: #036c3a;
+        --accent:        #C9993A;
+        --accent-glow:   rgba(201,153,58,0.18);
+        --bg:            #FDF4F8;
+        --card:          #FFFFFF;
+        --text:          #1A0A10;
+        --muted:         #7D5168;
+        --border:        #EDD5E2;
+    }
+    /* ══════════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'DM Sans', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    .header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px;
+        background: rgba(253, 244, 248, 0.85);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+        min-height: 62px;
+    }
+
+    .logo-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    /* Logo container — shows image if URL provided, else gradient monogram */
+    .logo-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--accent);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 15px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        overflow: hidden;
+    }
+
+    .logo-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .logo-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 0.01em;
+    }
+
+    .header-pill {
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--bg);
+        background: var(--primary);
+        border: 1px solid rgba(201,153,58,0.32);
+        padding: 5px 13px;
+        border-radius: 20px;
+        white-space: nowrap;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+        margin-top: 62px;       /* = header height */
+        position: relative;
+        height: 52vh;
+        min-height: 300px;
+        max-height: 500px;
+
+        /* ★ HERO IMAGE: Also editable inline below (search for data-hero) */
+        background-color: var(--primary);
+        background-size: cover;
+        background-position: center top;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(123, 16, 64, 0.15) 0%,
+            rgba(123, 16, 64, 0.60) 55%,
+            rgba(123, 16, 64, 0.92) 100%
+        );
+    }
+
+    /* Decorative crown watermark */
+    .hero-watermark {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        font-size: 90px;
+        opacity: 0.06;
+        pointer-events: none;
+        line-height: 1;
+    }
+
+    .hero-body {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto;
+        padding: 0 20px 30px;
+        text-align: center;
+    }
+
+    .hero-eyebrow {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 9px;
+        animation: riseIn 0.7s ease both;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(30px, 7vw, 52px);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.12;
+        margin-bottom: 10px;
+        animation: riseIn 0.7s 0.1s ease both;
+    }
+
+    .hero-title em {
+        font-style: italic;
+        color: var(--accent);
+    }
+
+    .hero-sub {
+        font-size: 13.5px;
+        color: rgba(255,255,255,0.78);
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        animation: riseIn 0.7s 0.2s ease both;
+    }
+
+    /* ─── FORM CARD ──────────────────────────────────── */
+    .main {
+        padding: 0 14px 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 580px;
+        background: var(--card);
+        border-radius: 22px;
+        padding: 34px 26px 30px;
+        margin-top: -30px;
+        position: relative;
+        z-index: 10;
+        box-shadow:
+            0 0 0 1px rgba(123,16,64,0.06),
+            0 20px 60px rgba(123,16,64,0.13),
+            0 4px 14px rgba(0,0,0,0.05);
+        animation: cardUp 0.55s 0.25s ease both;
+    }
+
+    .card-header {
+        margin-bottom: 22px;
+    }
+
+    .card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 21px;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 5px;
+    }
+
+    .card-desc {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+    }
+
+    .divider {
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 60%, transparent 100%);
+        border-radius: 2px;
+        margin: 18px 0 26px;
+    }
+
+    /* ─── FORM ELEMENTS ──────────────────────────────── */
+    .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+
+    @media (max-width: 430px) {
+        .row { grid-template-columns: 1fr; }
+        .card { padding: 26px 18px 24px; }
+    }
+
+    .field {
+        margin-bottom: 18px;
+    }
+
+    .field label {
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 7px;
+    }
+
+    .field label .req  { color: var(--primary-light); margin-left: 2px; }
+    .field label .opt  { font-size: 10px; font-weight: 400; text-transform: none;
+                         letter-spacing: 0; color: #bba0ad; margin-left: 5px; }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 15px;         /* ← 16px on iOS prevents auto-zoom */
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 400;
+        color: var(--text);
+        background: #fdf4f8;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        border-color: var(--primary-mid);
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(123,16,64,0.09);
+    }
+
+    input::placeholder, textarea::placeholder { color: #caadb8; font-weight: 300; }
+
+    select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237D5168' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 13px center;
+        padding-right: 40px;
+        cursor: pointer;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 108px;
+        line-height: 1.65;
+    }
+
+    /* Character counter */
+    .char-note {
+        font-size: 11px;
+        color: #caadb8;
+        text-align: right;
+        margin-top: 4px;
+        transition: color 0.2s;
+    }
+
+    .char-note.warn { color: var(--accent); }
+
+    /* ─── SUBMIT BUTTON ──────────────────────────────── */
+    .btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        color: #fff;
+        border: none;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: 'DM Sans', sans-serif;
+        letter-spacing: 0.04em;
+        border-radius: 12px;
+        cursor: pointer;
+        margin-top: 6px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.14s, box-shadow 0.14s;
+        box-shadow: 0 8px 24px rgba(123,16,64,0.38);
+    }
+
+    .btn:hover  { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(123,16,64,0.44); }
+    .btn:active { transform: translateY(0); }
+
+    /* Shimmer sweep on hover */
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -120%;
+        width: 80%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+        transition: left 0.55s ease;
+    }
+    .btn:hover::after { left: 140%; }
+
+    /* Loading spinner replaces icon */
+    .btn .icon  { display: inline-block; }
+    .btn .spinner {
+        display: none;
+        width: 18px; height: 18px;
+        border: 2.5px solid rgba(255,255,255,0.35);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.65s linear infinite;
+    }
+
+    .btn.loading .icon    { display: none; }
+    .btn.loading .spinner { display: inline-block; }
+    .btn.loading { pointer-events: none; }
+
+    /* ─── SUCCESS SCREEN ─────────────────────────────── */
+    #successScreen {
+        display: none;
+        text-align: center;
+        padding: 18px 8px 8px;
+        animation: riseIn 0.5s ease both;
+    }
+
+    .crown-anim {
+        font-size: 68px;
+        margin-bottom: 18px;
+        display: block;
+        animation: crownPop 0.6s 0.1s cubic-bezier(.175,.885,.32,1.275) both;
+    }
+
+    #successScreen h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 26px;
+        color: var(--primary);
+        margin-bottom: 10px;
+    }
+
+    #successScreen p {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.75;
+        max-width: 340px;
+        margin: 0 auto 22px;
+    }
+
+    .success-tag {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-glow);
+        border: 1px solid rgba(201,153,58,0.3);
+        padding: 8px 20px;
+        border-radius: 20px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+        text-align: center;
+        padding: 16px 16px 36px;
+        font-size: 12px;
+        color: #c0a0b0;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--primary); }
+
+    /* ─── ANIMATIONS ─────────────────────────────────── */
+    @keyframes riseIn  { from { opacity:0; transform:translateY(18px); }  to { opacity:1; transform:translateY(0); } }
+    @keyframes cardUp  { from { opacity:0; transform:translateY(32px); }  to { opacity:1; transform:translateY(0); } }
+    @keyframes spin    { to { transform: rotate(360deg); } }
+    @keyframes crownPop {
+        from { opacity:0; transform: scale(0.3) rotate(-20deg); }
+        to   { opacity:1; transform: scale(1) rotate(0deg); }
+    }
+
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header class="header">
+    <a class="logo-group" href="#">
+
+        <!--
+        ★ LOGO CUSTOMIZATION:
+          Option A — Use an image: set src to your logo URL.
+          Option B — No image: delete the <img> tag below;
+                     the colored letter "M" shows automatically.
+        -->
+        <div class="logo-mark" id="logoMark">
+            <img
+              src="logo.png"
+              alt="Logo"
+              id="logoImg"
+              onerror="this.remove()"
+            >
+            <span id="logoFallback" style="display:none">M</span>
+        </div>
+
+        <span class="logo-name">ELL INSTITTUTE</span>
+        <!--
+          ★ Change "Miss School" above to your event name
+        -->
+    </a>
+
+    <span class="header-pill">✦2O26 Registration Open</span>
+</header>
+
+
+<!-- ════════════════════════════════════════════
+     HERO SECTION
+     ★ To change the hero photo, replace the URL
+       in the style attribute below.
+════════════════════════════════════════════ -->
+<section
+  class="hero"
+  id="heroSection"
+  style="background-image: url('hero.webp');"
+>
+    <div class="hero-overlay"></div>
+    <div class="hero-watermark">🐝</div>
+    <div class="hero-body">
+        <span class="hero-eyebrow">✦ Official Registration · 2026 ✦</span>
+        <h1 class="hero-title">
+            ELL SPELLING BEE<br><em>CHAMPIONSHIP</em>
+            <!--
+              ★ Change "Miss" and "School" to your event name
+            -->
+        </h1>
+        <p class="hero-sub">Register now and compete for the title of Champion Speller.</p>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     MAIN — REGISTRATION FORM CARD
+════════════════════════════════════════════ -->
+<main class="main">
+<div class="card">
+
+    <!-- FORM VIEW -->
+    <div id="formContainer">
+
+        <div class="card-header">
+            <h2 class="card-title">Participant Registration</h2>
+            <p class="card-desc">
+                Fields marked <span style="color:var(--primary-light);font-weight:600">✶</span>
+                are required. Your details are handled by the organizing committee.
+            </p>
+        </div>
+        <div class="divider"></div>
+
+        <!--
+          ★ FORM ACTION: Google Forms submission URL (do not change unless you have a new form)
+        -->
+        <form id="regForm"
+              action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdaHNofOHiKDJtw3bsqgO4EfQMie6K7RO1isG3j_Bg49plUTQ/formResponse"
+              method="POST"
+              novalidate>
+
+            <!-- Full Name ─────────────────────────────── -->
+            <div class="field">
+                <label for="f_name">Full Name <span class="req">✶</span></label>
+                <input
+                  type="text"
+                  id="f_name"
+                  name="entry.1678096992"
+                  placeholder="e.g. Abena Mensah"
+                  autocomplete="name"
+                  required
+                >
+            </div>
+
+            <!-- Age + Country ──────────────────────────── -->
+            <div class="row">
+                <div class="field">
+                    <label for="f_age">Age <span class="req">✶</span></label>
+                    <input
+                      type="number"
+                      id="f_age"
+                      name="entry.1102355353"
+                      placeholder="e.g. 18"
+                      min="13" max="35"
+                      required
+                    >
+                </div>
+                <div class="field">
+                    <label for="f_country">Country <span class="req">✶</span></label>
+                    <input
+                      type="text"
+                      id="f_country"
+                      name="entry.741784235"
+                      placeholder="e.g. Ghana"
+                      autocomplete="country-name"
+                      required
+                    >
+                </div>
+            </div>
+
+            <!-- Tribe / Ethnicity ─────────────────────── -->
+            <div class="field">
+                <label for="f_tribe">Tribe / Ethnicity <span class="req">✶</span></label>
+                <input
+                  type="text"
+                  id="f_tribe"
+                  name="entry.1660872489"
+                  placeholder="e.g. Akan, Ewe, Ga, Fante…"
+                  required
+                >
+            </div>
+
+            <!-- School ID ──────────────────────────────── -->
+            <div class="field">
+                <label for="f_sid">School ID Number <span class="req">✶</span></label>
+                <input
+                  type="text"
+                  id="f_sid"
+                  name="entry.2081143970"
+                  placeholder="e.g. SID-2025-00123"
+                  autocomplete="off"
+                  required
+                >
+            </div>
+
+            <!-- Phone Number ───────────────────────────── -->
+            <div class="field">
+                <label for="f_phone">Phone Number <span class="req">✶</span></label>
+                <input
+                  type="tel"
+                  id="f_phone"
+                  name="entry.1100037609"
+                  placeholder="e.g. +233 24 000 0000"
+                  autocomplete="tel"
+                  required
+                >
+            </div>
+
+            <!-- Brief Expectation ─────────────────────── -->
+            <div class="field">
+                <label for="f_expect">
+                    Brief Expectation
+                    <span class="opt">(optional)</span>
+                </label>
+                <textarea
+                  id="f_expect"
+                  name="entry.1624168581"
+                  placeholder="What do you hope to gain or achieve by participating in Miss School?"
+                  maxlength="300"
+                ></textarea>
+                <div class="char-note" id="charCount">0 / 300</div>
+            </div>
+
+            <!-- Submit ─────────────────────────────────── -->
+            <button type="submit" class="btn" id="submitBtn">
+                <span class="icon">✦</span>
+                <span class="label-text">Submit My Registration</span>
+                <div class="spinner"></div>
+            </button>
+
+        </form>
+    </div><!-- /formContainer -->
+
+    <!-- SUCCESS VIEW -->
+    <div id="successScreen">
+        <span class="crown-anim">👑</span>
+        <h2>You're Registered!</h2>
+        <p>
+            Your application has been received and recorded.<br>
+            The organizing committee will reach out to you soon.<br>
+            Welcome, contestant — your journey starts now.
+        </p>
+        <span class="success-tag">✦ Application Confirmed ✦</span>
+    </div>
+
+</div><!-- /card -->
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 ELL Spelling Bee Championship · All Rights Reserved</p>
+</footer>
+
+
+<!-- ════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
+<script>
+
+/* ── Logo fallback: show "M" if image URL is invalid ─ */
+(function(){
+    var img = document.getElementById('logoImg');
+    var fb  = document.getElementById('logoFallback');
+    if (!img) return;
+    function showFallback(){ if(fb) fb.style.display='inline'; }
+    img.addEventListener('error', showFallback);
+    // If src is the placeholder, show fallback immediately
+    if (!img.src || img.src.includes('YOUR_LOGO_URL_HERE')) showFallback();
+})();
+
+/* ── Hero: if no hero image, apply gradient fallback ─ */
+(function(){
+    var hero = document.getElementById('heroSection');
+    var bg   = hero.style.backgroundImage || '';
+    if (!bg || bg.includes('YOUR_HERO_IMAGE_URL_HERE') || bg === "url('')") {
+        hero.style.backgroundImage =
+            'linear-gradient(145deg, #7B1040 0%, #A01353 50%, #C2185B 100%)';
+    }
+})();
+
+/* ── Textarea character counter ─────────────────────── */
+(function(){
+    var ta    = document.getElementById('f_expect');
+    var count = document.getElementById('charCount');
+    if (!ta || !count) return;
+    ta.addEventListener('input', function(){
+        var n = ta.value.length;
+        count.textContent = n + ' / 300';
+        count.classList.toggle('warn', n > 240);
+    });
+})();
+
+/* ── Form submission ─────────────────────────────────── */
+document.getElementById('regForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var form  = e.target;
+    var btn   = document.getElementById('submitBtn');
+    var label = btn.querySelector('.label-text');
+
+    // Client-side required-fields check
+    var required = form.querySelectorAll('[required]');
+    var invalid  = false;
+    required.forEach(function(el){
+        el.style.borderColor = '';
+        if (!el.value.trim()) {
+            el.style.borderColor = '#C2185B';
+            if (!invalid) { el.focus(); invalid = true; }
+        }
+    });
+    if (invalid) return;
+
+    // Show loading state
+    btn.classList.add('loading');
+    if (label) label.textContent = 'Submitting…';
+
+    var formData = new FormData(form);
+
+    fetch(form.action, {
+        method : 'POST',
+        body   : formData,
+        mode   : 'no-cors'   // Required for cross-origin Google Forms submission
+    })
+    .then(function(){
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+    .catch(function(){
+        btn.classList.remove('loading');
+        if (label) label.textContent = 'Submit My Registration';
+        alert('Connection error. Please check your internet and try again.');
+    });
+});
+
+</script>
+
+</body>
+</html>
